@@ -20,6 +20,7 @@ function draw() {
     text('Press shift to start', 70, 300);
 
   }
+  //Beginscherm State
   if (gameState == 1) {
 
     background(240)
@@ -55,25 +56,30 @@ function draw() {
     if (x < 100 || x > 400) {
       v = v * -1;
 
-    }
-    //xborder
+     }
 
     if (y < 100 || y > 400) {
       b = b * -1;
-    }
-    //yborder
+     }
 
     if (s < 20 || s > 80) {
       sc = sc * -1;
-    }
-
+     }
+   
+    if (s = 80 && score = 0) {
+      gamestate = 2
+     }
+     //^werkt niet
   }
+  //Spel State
   if (gameState == 2) {
+    background(255);
+    textSize(40);
+    fill(0);
+    text('Press shift to play again', 70, 300);
   }
-  //print(gameState)
-  //print(score)
+  //Game over state
 }
-
 
 
 function keyPressed() {
@@ -81,7 +87,7 @@ function keyPressed() {
     if (gameState == 0) {
       gameState = 1;
     }
-    if (gameState == 2){
+    if (gameState == 2) {
       gameState = 1;
     }
   }
