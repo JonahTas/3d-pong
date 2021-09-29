@@ -56,20 +56,15 @@ function draw() {
     if (x < 100 || x > 400) {
       v = v * -1;
 
-     }
+    }
 
     if (y < 100 || y > 400) {
       b = b * -1;
-     }
+    }
 
     if (s < 20 || s > 80) {
       sc = sc * -1;
-     }
-   
-    if (s = 80 && score = 0) {
-      gamestate = 2
-     }
-     //^werkt niet
+    }
   }
   //Spel State
   if (gameState == 2) {
@@ -79,6 +74,10 @@ function draw() {
     text('Press shift to play again', 70, 300);
   }
   //Game over state
+
+  if (s == 79 && score == 0) {
+    gamestate == 2;
+  }
 }
 
 
