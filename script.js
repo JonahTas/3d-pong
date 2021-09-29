@@ -14,7 +14,7 @@ function setup() {
 function draw() {
 
   if (gameState == 0) {
-
+    background(255);
     textSize(40);
     fill(0);
     text('Press shift to start', 70, 300);
@@ -22,7 +22,27 @@ function draw() {
   }
   //Beginscherm State
   if (gameState == 1) {
+    game();
+  }
+  //Spel State
+  if (gameState == 2) {
+    background(255);
+    textSize(40);
+    fill(0);
+    text('Press shift to play again', 70, 300);
+  }
+  //Game over state
+  //console.log(s);
+  //console.log(score);
 
+  if (s >= 79 && score == 0) {
+    gameState = 2;
+    s = 25
+  }
+}
+
+function game(){
+  
     background(240)
     distance = dist(mouseX, mouseY, x, y)
     if (distance < s2) {
@@ -65,21 +85,7 @@ function draw() {
     if (s < 20 || s > 80) {
       sc = sc * -1;
     }
-  }
-  //Spel State
-  if (gameState == 2) {
-    background(255);
-    textSize(40);
-    fill(0);
-    text('Press shift to play again', 70, 300);
-  }
-  //Game over state
-
-  if (s == 79 && score == 0) {
-    gamestate == 2;
-  }
 }
-
 
 function keyPressed() {
   if (keyCode === SHIFT) {
