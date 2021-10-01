@@ -1,0 +1,12 @@
+function takeScore() {
+  if (!creature.dead) {
+    scoreInt += 1;
+    score = fiveDigitStringNumber(scoreInt);
+    if (scoreInt > highScoreInt) {
+      highScoreInt = scoreInt;
+      highScore = score;
+    }
+  } else {
+    scoreInt = 0;
+  }
+}
