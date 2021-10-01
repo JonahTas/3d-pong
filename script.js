@@ -33,6 +33,8 @@ function draw() {
     textSize(40);
     fill(0);
     text('Press shift to play again', 70, 300);
+    text("Your highscore is:" + " " + highscore, 70, 30);
+    text("Your score was:" + " "+newscore,70,70)
   }
   //Game over state
 
@@ -116,7 +118,7 @@ function keyPressed() {
       gameState = 1;
     }
 
-  oldscore = newscore;
+
   newscore = 0;
   print(highscore);
 
