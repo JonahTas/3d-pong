@@ -3,6 +3,10 @@ var gameState = 0;
 var newscore = 0;
 var highscore = 0;
 
+function preload() {
+  bg = loadImage('images/GameBackgroundPong.png');
+}
+
 function setup() {
   createCanvas(500, 500);
   x = 200;
@@ -41,7 +45,8 @@ function draw() {
 }
 
 function game() {
-  
+  background(bg)
+
   distance = dist(mouseX, mouseY, x, y)
   if (distance < s2) {
     dot1 = 0
