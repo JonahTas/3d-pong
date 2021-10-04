@@ -41,8 +41,7 @@ function draw() {
 }
 
 function game() {
-
-  background(240)
+  
   distance = dist(mouseX, mouseY, x, y)
   if (distance < s2) {
     dot1 = 0
