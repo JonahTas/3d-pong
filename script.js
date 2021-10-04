@@ -1,7 +1,6 @@
 var x, y, vx, vy, s, sc, s2, dot1, score;
 var gameState = 0;
 var newscore = 0;
-var oldscore = 0;
 var highscore = 0;
 
 function setup() {
@@ -100,13 +99,11 @@ function game() {
 
 
 
-  if (newscore >= oldscore) {
+  if (newscore >= highscore) {
     highscore = newscore
   }
-  else {
-    highscore = oldscore
-  }
-
+  else
+    highscore = highscore
 }
 
 function keyPressed() {
