@@ -5,6 +5,7 @@ var highscore = 0;
 
 function preload() {
   bg = loadImage('images/GameBackgroundPong.png');
+  batje = loadImage('PingPongBatje.png');
 }
 
 function setup() {
@@ -46,7 +47,7 @@ function draw() {
 
 function game() {
   background(bg)
-
+  noCursor();
   distance = dist(mouseX, mouseY, x, y)
   if (distance < s2) {
     dot1 = 0
@@ -71,8 +72,7 @@ function game() {
   circle(x, y, s2);
   //Kleine stip
 
-  fill(250)
-  ellipse(mouseX, mouseY, 20, 20);
+  image(batje,mouseX-10,mouseY-10,40,40)
   //Cursor
 
   x = x + vx;
