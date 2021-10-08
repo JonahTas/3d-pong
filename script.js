@@ -6,7 +6,7 @@ var highscore = 0;
 function preload() {
   bg = loadImage('images/GameBackgroundPong.png');
   batje = loadImage('PingPongBatje.png');
-  thefont = loadFont('font.ttf');
+  balletje = loadImage('PingPongBall.png');
 }
 
 function setup() {
@@ -24,7 +24,6 @@ function draw() {
   if (gameState == 0) {
     background(255);
     textSize(40);
-    textFont(thefont);
     fill(0);
     text('Press shift to start', 70, 300);
 
