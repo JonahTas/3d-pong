@@ -4,7 +4,7 @@ var newscore = 0;
 var highscore = 0;
 
 function preload() {
-  bg = loadImage('images/GameBackgroundPong.png');
+  bg = loadImage('GameBackgroundPong.gif');
   batje = loadImage('PingPongBatje.png');
   balletje = loadImage('PingPongBall.png');
 }
