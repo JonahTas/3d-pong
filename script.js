@@ -4,9 +4,9 @@ var newscore = 0;
 var highscore = 0;
 
 function preload() {
-  bg = loadImage('GameBackgroundPong.gif');
-  batje = loadImage('PingPongBatje.png');
-  balletje = loadImage('PingPongBall.png');
+  bg = loadImage('images/GameBackgroundPong.png');
+  batje = loadImage('images/PingPongBatje.png');
+  balletje = loadImage('images/PingPongBall.png');
 }
 
 function setup() {
@@ -64,9 +64,11 @@ function game() {
   fill(0);
   text(newscore, 240, 30)
   //Display score
-
-  fill(250, 84, 75)
-  circle(x, y, s);
+  
+  
+  image(balletje,x-s,y-s,s*2,s*2)
+  //fill(250, 84, 75)
+  //circle(x, y, s);
   //Grote stip
 
   fill(dot1)
@@ -122,7 +124,5 @@ function keyPressed() {
 
 
   newscore = 0;
-  print(highscore);
-
   }
 }
