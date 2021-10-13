@@ -3,6 +3,19 @@ var gameState = 0;
 var newscore = 0;
 var highscore = 0;
 
+class Animation{
+  constructor(nameImage,x,y,w,h){
+    this.nameImage = nameImage;
+    this.x = x;
+    this.y = y;
+  }
+
+drawImage() {
+
+  image(this.nameImage,this.x,this.y,this.tijd);
+  }
+}
+
 function preload() {
   bg = loadImage('images/GameBackgroundPong.png');
   batje = loadImage('images/PingPongBatje.png');
@@ -17,12 +30,14 @@ function setup() {
   vy = 1
   s = 40
   sc = 0.75
+
+  welcome = new Animation(balletje, 100, 100);
 }
 
 function draw() {
 
   if (gameState == 0) {
-    background(255);
+    background(240,240,205);
     textSize(40);
     fill(0);
     text('Press shift to start', 70, 300);
@@ -34,10 +49,10 @@ function draw() {
   }
   //Spel State
   if (gameState == 2) {
-    background(255);
+    background(240,240,205);
     textSize(40);
     fill(0);
-    text('Press shift to play again', 70, 300);
+    text('Press shift to play again', 25, 300);
     text("Your highscore is:" + " " + highscore, 70, 30);
     text("Your score was:" + " "+newscore,70,70)
   }
@@ -105,12 +120,14 @@ function game() {
   } //reset scale value
 
 
-
   if (newscore >= highscore) {
     highscore = newscore
   }
-  else
+  else{
     highscore = highscore
+  }
+
+   welcome.drawImage();
 }
 
 function keyPressed() {
