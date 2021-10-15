@@ -17,7 +17,7 @@ drawImage() {
 }
 
 function preload() {
-  bg = loadImage('images/GameBackgroundPong.png');
+  bg = loadImage('images/GameBackgroundPong.gif');
   batje = loadImage('images/PingPongBatje.png');
   balletje = loadImage('images/PingPongBall.png');
 }
@@ -38,11 +38,14 @@ function draw() {
 
   if (gameState == 0) {
     background(240,240,205);
+    image(bg,0,0);
     textSize(40);
     fill(0);
     text('Press shift to start', 70, 300);
-
-  }
+}
+function mouseReleased() {
+  bg.play();
+}
   //Beginscherm State
   if (gameState == 1) {
     game();
@@ -57,8 +60,6 @@ function draw() {
     text("Your score was:" + " "+newscore,70,70)
   }
   //Game over state
-
-
 }
 
 function game() {
