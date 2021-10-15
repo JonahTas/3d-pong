@@ -40,7 +40,7 @@ class Ball {
 
   //----------------------------------------------------------------------------
   drawBall() {
-    image(this.img, this.x, this.y, this.s, this.ss);
+    image(this.img, this.x - this.s , this.y - this.s, this.s*2, this.ss*2);
 
     //----------------------------------------------------------------------------
     var distance = dist(mouseX, mouseY, this.x, this.y);
@@ -77,10 +77,10 @@ class Ball {
     } //scale bounce
 
     if (this.s >= 80) {
-      newscore = newscore + 1;
+      newscore = newscore +1;
     } //score
 
-    if (this.s >= 79.9 && score == 0) {
+    if (this.s >= 79 && score == 0) {
       gameState = 2;
       this.s = 25;
       this.ss = 25;
@@ -104,7 +104,7 @@ function setup() {
   hALLO = new Text('HALLO', 0, 100, width);
   start = new Text('Press shift to start', 0, 275, width);
   playagain = new Text('Press shift to play again', 0, 300, width);
-  ball1 = new Ball(balletje, this.x - this.s, this.y - this.s, this.s , this.ss);
+  ball1 = new Ball(balletje, this.x - this.s, this.y - this.s, this.s, this.ss);
 }
 
 
