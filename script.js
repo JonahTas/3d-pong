@@ -5,9 +5,9 @@ var highscore = 0;
 //----------------------------------------------------------------------------
 
 function preload() {
-  bg = loadImage('media/GameBackgroundPong.png');
-  batje = loadImage('media/PingPongBatje.png');
-  balletje = loadImage('media/PingPongBall.png');
+  bg = loadImage('images/GameBackgroundPong.png');
+  batje = loadImage('images/PingPongBatje.png');
+  balletje = loadImage('images/PingPongBall.png');
 }
 
 class Text {
