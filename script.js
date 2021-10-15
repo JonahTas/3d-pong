@@ -35,33 +35,33 @@ class Ball {
     this.s = 40;
     this.ss = 40;
     this.sc = 0.75;
-    this.s2;
+    this.s2 = this.s * 0.4;
 }
 
   //----------------------------------------------------------------------------
   drawBall() {
-    image(this.img, this.x, this.y, this.s, this.ss)
+    image(this.img, this.x, this.y, this.s, this.ss);
 
     //----------------------------------------------------------------------------
-    var distance = dist(mouseX, mouseY, this.x, this.y)
+    var distance = dist(mouseX, mouseY, this.x, this.y);
     if (distance < this.s2) {
-      dot1 = 0
-      score = 1
+      dot1 = 0;
+      score = 1;
     }
     else {
-      dot1 = 255
-      score = 0
+      dot1 = 255;
+      score = 0;
     }
 
-    fill(dot1)
+    fill(dot1);
     circle(this.x, this.y, this.s2);
     //kleine stip
 
     this.x = this.x + this.vx;
-    this.y = this.y + this.vy
-    this.s = this.s + this.sc
-    this.ss = this.ss +this.sc
-    this.s2 = this.s * 0.4
+    this.y = this.y + this.vy;
+    this.s = this.s + this.sc;
+    this.ss = this.ss +this.sc;
+    // this.s2 = s2;
 
     if (this.x < 100 || this.x > 400) {
       this.vx = this.vx * -1;
@@ -76,13 +76,13 @@ class Ball {
     } //scale bounce
 
     if (this.s >= 80) {
-      newscore = newscore + 1
+      newscore = newscore + 1;
     } //score
 
     if (this.s >= 79.9 && score == 0) {
       gameState = 2;
-      this.s = 25
-      this.ss = 25
+      this.s = 25;
+      this.ss = 25;
     } //reset scale value
 
   }
@@ -103,7 +103,7 @@ function setup() {
   hALLO = new Text('HALLO', 0, 100, width);
   start = new Text('Press shift to start', 0, 275, width);
   playagain = new Text('Press shift to play again', 0, 300, width);
-  ball1 = new Ball(balletje, this.x - this.s, this.y - this.s, this.s , this.ss)
+  ball1 = new Ball(balletje, this.x - this.s, this.y - this.s, this.s , this.ss);
 }
 
 
@@ -132,7 +132,7 @@ function draw() {
     textAlign(CENTER);
     text("Your highscore is:" + " " + highscore, 0, 50, width);
     textAlign(CENTER);
-    text("Your score was:" + " " + newscore, 0, 90, width)
+    text("Your score was:" + " " + newscore, 0, 90, width);
   }
   //Game over state
 
@@ -147,7 +147,7 @@ function game() {
   ball1.drawBall();
   textSize(30);
   fill(255);
-  text(newscore, 240, 30)
+  text(newscore, 240, 30);
   //Display score
 
 
@@ -199,13 +199,13 @@ function game() {
 
   //----------------------------------------------------------------------------
   if (newscore >= highscore) {
-    highscore = newscore
+    highscore = newscore;
   }
   else {
-    highscore = highscore
+    highscore = highscore;
   }
 
-  image(batje, mouseX - 10, mouseY - 10, 40, 40)
+  image(batje, mouseX - 10, mouseY - 10, 40, 40);
   //Cursor
 
 }
