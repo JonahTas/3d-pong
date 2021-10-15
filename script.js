@@ -2,6 +2,8 @@ var x, y, vx, vy, s, sc, s2, dot1, score;
 var gameState = 0;
 var newscore = 0;
 var highscore = 0;
+//----------------------------------------------------------------------------
+
 
 class Text {
   constructor(text, x, y, width) {
@@ -15,50 +17,17 @@ class Text {
     text(this.text, this.x, this.y, width);
   }
 }
-class Ball {
-  constructor(x,y,s,s) {
-    this.x;
-    this.y;
-    this.s;
-    this.img;    
-    this.s2
-    this.vx
-    this.vy
-    this.sc
-  }
-  
-  draw() {
-    image(balletje, x - s, y - s, s * 2, s * 2)
 
-    fill(dot1)
-    circle(x, y, s2)
 
-    x = x + vx;
-    y = y + vy;
-    s = s + sc;
-    s2 = s * 0.4;
-
-    if (x < 100 || x > 400) {
-      vx = vx * -1;
-    } //x border bounce
-
-    if (y < 100 || y > 400) {
-      vy = vy * -1;
-    } //y border bounce
-
-    if (s < 20 || s > 80) {
-      sc = sc * -1;
-    } //scale bounce
-
-    }
-  }
-
+//----------------------------------------------------------------------------
 function preload() {
   bg = loadImage('images/GameBackgroundPong.png');
   batje = loadImage('images/PingPongBatje.png');
   balletje = loadImage('images/PingPongBall.png');
 }
 
+
+//----------------------------------------------------------------------------
 function setup() {
   createCanvas(500, 500);
   x = 200;
@@ -71,9 +40,10 @@ function setup() {
   hALLO = new Text('HALLO', 0, 100, width);
   start = new Text('Press shift to start', 0, 275, width);
   playagain = new Text('Press shift to play again', 0, 300, width);
-  ball = new Ball(x,y,s,s)
 }
 
+
+//----------------------------------------------------------------------------
 function draw() {
 
   if (gameState == 0) {
@@ -106,7 +76,7 @@ function draw() {
 }
 
 
-
+//----------------------------------------------------------------------------
 function game() {
   background(bg)
   noCursor();
@@ -122,7 +92,7 @@ function game() {
   //Zorgt dat het midden van kleur kan veranderen als je er over hovert
 
   textSize(30);
-  fill(0);
+  fill(255);
   text(newscore, 240, 30)
   //Display score
 
@@ -173,9 +143,11 @@ function game() {
     highscore = highscore
   }
 
-  hALLO.drawText();
+
 }
 
+
+//----------------------------------------------------------------------------
 function keyPressed() {
   if (keyCode === SHIFT) {
     if (gameState == 0) {
