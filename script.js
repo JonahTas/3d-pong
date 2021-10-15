@@ -29,8 +29,15 @@ class Ball {
     this.ss;
   }
 
+//----------------------------------------------------------------------------
   drawBall() {
     image(this.img,this.x,this.s,this.ss)
+
+//----------------------------------------------------------------------------
+
+
+
+
   }
 }
 
@@ -55,7 +62,7 @@ function setup() {
   hALLO = new Text('HALLO', 0, 100, width);
   start = new Text('Press shift to start', 0, 275, width);
   playagain = new Text('Press shift to play again', 0, 300, width);
-  ball = new Ball(balletje,x-s, y-s, s*2, ss*2)
+  ball = new Ball(balletje,this.x-this.s, this.y-this.s, this.s *2, this.ss *2)
 }
 
 
@@ -114,8 +121,6 @@ function game() {
 
 
   image(balletje, x - s, y - s, s * 2, s * 2)
-  //fill(250, 84, 75)
-  //circle(x, y, s);
   //Grote stip
 
   fill(dot1)
