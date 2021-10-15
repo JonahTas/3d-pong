@@ -32,15 +32,15 @@ class Ball {
     this.vx = 2.4;
     this.y = y;
     this.vy = 1;
-    this.s = s;
-    this.ss = ss;
+    this.s = 40;
+    this.ss = 40;
     this.sc = 0.75;
     this.s2;
 }
 
   //----------------------------------------------------------------------------
   drawBall() {
-    image(this.img, this.x, this.s, this.ss)
+    image(this.img, this.x, this.y, this.s, this.ss)
 
     //----------------------------------------------------------------------------
     var distance = dist(mouseX, mouseY, this.x, this.y)
@@ -60,6 +60,7 @@ class Ball {
     this.x = this.x + this.vx;
     this.y = this.y + this.vy
     this.s = this.s + this.sc
+    this.ss = this.ss +this.sc
     this.s2 = this.s * 0.4
 
     if (this.x < 100 || this.x > 400) {
@@ -74,13 +75,14 @@ class Ball {
       this.sc = this.sc * -1;
     } //scale bounce
 
-    if (s >= 80) {
+    if (this.s >= 80) {
       newscore = newscore + 1
     } //score
 
-    if (s >= 79 && score == 0) {
+    if (this.s >= 79.9 && score == 0) {
       gameState = 2;
-      s = 25
+      this.s = 25
+      this.ss = 25
     } //reset scale value
 
   }
@@ -101,7 +103,7 @@ function setup() {
   hALLO = new Text('HALLO', 0, 100, width);
   start = new Text('Press shift to start', 0, 275, width);
   playagain = new Text('Press shift to play again', 0, 300, width);
-  ball1 = new Ball(balletje, 200 - 40, 200 - 40, 40 * 2, 40 * 2)
+  ball1 = new Ball(balletje, this.x - this.s, this.y - this.s, this.s , this.ss)
 }
 
 
