@@ -20,6 +20,21 @@ class Text {
 
 
 //----------------------------------------------------------------------------
+class Ball {
+  constructor(img, x, y, s, ss) {
+    this.img;
+    this.x;
+    this.y;
+    this.s;
+    this.ss;
+  }
+
+  drawBall() {
+    image(this.img,this.x,this.s,this.ss)
+  }
+}
+
+//----------------------------------------------------------------------------
 function preload() {
   bg = loadImage('images/GameBackgroundPong.png');
   batje = loadImage('images/PingPongBatje.png');
@@ -40,6 +55,7 @@ function setup() {
   hALLO = new Text('HALLO', 0, 100, width);
   start = new Text('Press shift to start', 0, 275, width);
   playagain = new Text('Press shift to play again', 0, 300, width);
+  ball = new Ball(balletje,x-s, y-s, s*2, ss*2)
 }
 
 
