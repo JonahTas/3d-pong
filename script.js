@@ -35,7 +35,7 @@ class Ball {
     this.s = 40;
     this.ss = 40;
     this.sc = 0.75;
-    this.s2 = this.s * 0.4;
+    this.s2 = this.s2 
 }
 
   //----------------------------------------------------------------------------
@@ -57,6 +57,7 @@ class Ball {
     circle(this.x, this.y, this.s2);
     //kleine stip
 
+    this.s2 = this.s * 0.4; 
     this.x = this.x + this.vx;
     this.y = this.y + this.vy;
     this.s = this.s + this.sc;
