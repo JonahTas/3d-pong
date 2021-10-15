@@ -25,7 +25,7 @@ class Ball {
     this.img;
     this.x = 200;
     this.vx = 2.4;
-    this.y =200;
+    this.y = 200;
     this.vy = 1;
     this.s = 40;
     this.ss = 40;
@@ -37,17 +37,17 @@ class Ball {
   drawBall() {
     image(this.img, this.x, this.s, this.ss)
 
-  //----------------------------------------------------------------------------
+    //----------------------------------------------------------------------------
     distance = dist(mouseX, mouseY, this.x, this.y)
-      if (distance < this.s2) {
-        dot1 = 0
-        score = 1
-      }
-      else {
-        dot1 = 255
-        score = 0
-      }
-    
+    if (distance < this.s2) {
+      dot1 = 0
+      score = 1
+    }
+    else {
+      dot1 = 255
+      score = 0
+    }
+
     fill(dot1)
     circle(this.x, this.y, this.s2);
     //kleine stip
@@ -58,25 +58,25 @@ class Ball {
     this.s2 = this.s * 0.4
 
     if (this.x < 100 || this.x > 400) {
-     this.vx = this.vx * -1;
-   } //x border bounce
+      this.vx = this.vx * -1;
+    } //x border bounce
 
     if (this.y < 100 || this.y > 400) {
-     this.vy = this.vy * -1;
-     } //y border bounce
+      this.vy = this.vy * -1;
+    } //y border bounce
 
     if (this.s < 20 || this.s > 80) {
       this.sc = this.sc * -1;
-      } //scale bounce
+    } //scale bounce
 
     if (s >= 80) {
-     newscore = newscore + 1
-     } //score
+      newscore = newscore + 1
+    } //score
 
     if (s >= 79 && score == 0) {
-     gameState = 2;
-     s = 25
-     } //reset scale value
+      gameState = 2;
+      s = 25
+    } //reset scale value
 
   }
 }
@@ -102,7 +102,7 @@ function setup() {
   hALLO = new Text('HALLO', 0, 100, width);
   start = new Text('Press shift to start', 0, 275, width);
   playagain = new Text('Press shift to play again', 0, 300, width);
-  ball = new Ball(balletje, this.x - this.s, this.y - this.s, this.s * 2, this.ss * 2)
+  ball1 = new Ball(balletje, this.x - this.s, this.y - this.s, this.s * 2, this.ss * 2)
 }
 
 
@@ -143,14 +143,14 @@ function draw() {
 function game() {
   background(bg)
   noCursor();
-  
+  ball1.drawBall
   textSize(30);
   fill(255);
   text(newscore, 240, 30)
   //Display score
 
-  
-//----------------------------------------------------------------------------  
+
+  //----------------------------------------------------------------------------  
   distance = dist(mouseX, mouseY, x, y)
   if (distance < s2) {
     dot1 = 0
@@ -162,7 +162,7 @@ function game() {
   }
   //Zorgt dat het midden van kleur kan veranderen als je er over hovert
 
-  
+
   image(balletje, x - s, y - s, s * 2, s * 2)
   //Grote stip
 
@@ -196,7 +196,7 @@ function game() {
     s = 25
   } //reset scale value
 
-//----------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
   if (newscore >= highscore) {
     highscore = newscore
   }
