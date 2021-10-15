@@ -12,7 +12,7 @@ class Animation{
 
 drawImage() {
 
-  image(this.nameImage,this.x,this.y,this.tijd);
+  image(this.nameImage,this.x,this.y);
   }
 }
 
@@ -26,10 +26,10 @@ function setup() {
   createCanvas(500, 500);
   x = 200;
   y = 200;
-  vx = 2.4
-  vy = 1
-  s = 40
-  sc = 0.75
+  vx = 2.4;
+  vy = 1;
+  s = 40;
+  sc = 0.75;
 
   welcome = new Animation(balletje, 100, 100);
 }
@@ -127,7 +127,7 @@ function game() {
     highscore = highscore
   }
 
-   welcome.drawImage();
+   //welcome.drawImage();
 }
 
 function keyPressed() {
