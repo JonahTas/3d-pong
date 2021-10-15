@@ -3,18 +3,55 @@ var gameState = 0;
 var newscore = 0;
 var highscore = 0;
 
-class Animation{
-  constructor(nameImage,x,y,w,h){
-    this.nameImage = nameImage;
+class Text {
+  constructor(text, x, y, width) {
+    this.text = text;
     this.x = x;
     this.y = y;
   }
 
-drawImage() {
-
-  image(this.nameImage,this.x,this.y);
+  drawText() {
+    textAlign(CENTER);
+    text(this.text, this.x, this.y, width);
   }
 }
+class Ball {
+  constructor(x,y,s,s) {
+    this.x;
+    this.y;
+    this.s;
+    this.img;    
+    this.s2
+    this.vx
+    this.vy
+    this.sc
+  }
+  
+  draw() {
+    image(balletje, x - s, y - s, s * 2, s * 2)
+
+    fill(dot1)
+    circle(x, y, s2)
+
+    x = x + vx;
+    y = y + vy;
+    s = s + sc;
+    s2 = s * 0.4;
+
+    if (x < 100 || x > 400) {
+      vx = vx * -1;
+    } //x border bounce
+
+    if (y < 100 || y > 400) {
+      vy = vy * -1;
+    } //y border bounce
+
+    if (s < 20 || s > 80) {
+      sc = sc * -1;
+    } //scale bounce
+
+    }
+  }
 
 function preload() {
   bg = loadImage('images/GameBackgroundPong.png');
@@ -31,17 +68,21 @@ function setup() {
   s = 40;
   sc = 0.75;
 
-  welcome = new Animation(balletje, 100, 100);
+  hALLO = new Text('HALLO', 0, 100, width);
+  start = new Text('Press shift to start', 0, 275, width);
+  playagain = new Text('Press shift to play again', 0, 300, width);
+  ball = new Ball(x,y,s,s)
 }
 
 function draw() {
 
   if (gameState == 0) {
-    background(240,240,205);
+    background(240, 240, 205);
     textSize(40);
     fill(0);
     textAlign(CENTER);
-    text('Press shift to start', 0, 275,width);
+    start.drawText();
+
 
   }
   //Beginscherm State
@@ -50,20 +91,21 @@ function draw() {
   }
   //Spel State
   if (gameState == 2) {
-    background(240,240,205);
+    background(240, 240, 205);
     textSize(40);
     fill(0);
+    playagain.drawText();
     textAlign(CENTER);
-    text('Press shift to play again', 0, 300,width);
+    text("Your highscore is:" + " " + highscore, 0, 50, width);
     textAlign(CENTER);
-    text("Your highscore is:" + " " + highscore, 0, 50,width);
-    textAlign(CENTER);
-    text("Your score was:" + " "+newscore,0,90,width)
+    text("Your score was:" + " " + newscore, 0, 90, width)
   }
   //Game over state
 
 
 }
+
+
 
 function game() {
   background(bg)
@@ -83,9 +125,9 @@ function game() {
   fill(0);
   text(newscore, 240, 30)
   //Display score
-  
-  
-  image(balletje,x-s,y-s,s*2,s*2)
+
+
+  image(balletje, x - s, y - s, s * 2, s * 2)
   //fill(250, 84, 75)
   //circle(x, y, s);
   //Grote stip
@@ -94,7 +136,7 @@ function game() {
   circle(x, y, s2);
   //Kleine stip
 
-  image(batje,mouseX-10,mouseY-10,40,40)
+  image(batje, mouseX - 10, mouseY - 10, 40, 40)
   //Cursor
 
   x = x + vx;
@@ -127,11 +169,11 @@ function game() {
   if (newscore >= highscore) {
     highscore = newscore
   }
-  else{
+  else {
     highscore = highscore
   }
 
-   //welcome.drawImage();
+  hALLO.drawText();
 }
 
 function keyPressed() {
@@ -144,6 +186,6 @@ function keyPressed() {
     }
 
 
-  newscore = 0;
+    newscore = 0;
   }
 }
