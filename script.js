@@ -35,12 +35,12 @@ class Ball {
     this.s = 40;
     this.ss = 40;
     this.sc = 0.75;
-    this.s2 = this.s2 
-}
+    this.s2 = this.s2
+  }
 
   //----------------------------------------------------------------------------
   drawBall() {
-    image(this.img, this.x - this.s , this.y - this.s, this.s*2, this.ss*2);
+    image(this.img, this.x - this.s, this.y - this.s, this.s * 2, this.ss * 2);
 
     //----------------------------------------------------------------------------
     var distance = dist(mouseX, mouseY, this.x, this.y);
@@ -57,12 +57,12 @@ class Ball {
     circle(this.x, this.y, this.s2);
     //kleine stip
 
-    this.s2 = this.s * 0.4; 
+    this.s2 = this.s * 0.4;
     this.x = this.x + this.vx;
     this.y = this.y + this.vy;
     this.s = this.s + this.sc;
-    this.ss = this.ss +this.sc;
-    // this.s2 = s2;
+    this.ss = this.ss + this.sc;
+    
 
     if (this.x < 100 || this.x > 400) {
       this.vx = this.vx * -1;
@@ -77,7 +77,7 @@ class Ball {
     } //scale bounce
 
     if (this.s >= 80) {
-      newscore = newscore +1;
+      newscore = newscore + 1;
     } //score
 
     if (this.s >= 79 && score == 0) {
@@ -164,38 +164,38 @@ function game() {
   // }
   //Zorgt dat het midden van kleur kan veranderen als je er over hovert
 
-//   image(balletje, x - s, y - s, s * 2, s * 2)
-//   //Grote stip
+  //   image(balletje, x - s, y - s, s * 2, s * 2)
+  //   //Grote stip
 
-//   fill(dot1)
-//   circle(x, y, s2);
-//   //Kleine stip
+  //   fill(dot1)
+  //   circle(x, y, s2);
+  //   //Kleine stip
 
-//   x = x + vx;
-//   y = y + vy
-//   s = s + sc
-//   s2 = s * 0.4
+  //   x = x + vx;
+  //   y = y + vy
+  //   s = s + sc
+  //   s2 = s * 0.4
 
-//   if (x < 100 || x > 400) {
-//     vx = vx * -1;
-//   } //x border bounce
+  //   if (x < 100 || x > 400) {
+  //     vx = vx * -1;
+  //   } //x border bounce
 
-//   if (y < 100 || y > 400) {
-//     vy = vy * -1;
-//   } //y border bounce
+  //   if (y < 100 || y > 400) {
+  //     vy = vy * -1;
+  //   } //y border bounce
 
-//   if (s < 20 || s > 80) {
-//     sc = sc * -1;
-//   } //scale bounce
+  //   if (s < 20 || s > 80) {
+  //     sc = sc * -1;
+  //   } //scale bounce
 
-//   if (s >= 80) {
-//     newscore = newscore + 1
-//   } //score
+  //   if (s >= 80) {
+  //     newscore = newscore + 1
+  //   } //score
 
-//   if (s >= 79 && score == 0) {
-//     gameState = 2;
-//     s = 25
-//   }
+  //   if (s >= 79 && score == 0) {
+  //     gameState = 2;
+  //     s = 25
+  //   }
   //reset scale value
 
   //----------------------------------------------------------------------------
