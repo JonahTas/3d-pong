@@ -4,6 +4,11 @@ var newscore = 0;
 var highscore = 0;
 //----------------------------------------------------------------------------
 
+function preload() {
+  bg = loadImage('images/GameBackgroundPong.png');
+  batje = loadImage('images/PingPongBatje.png');
+  balletje = loadImage('images/PingPongBall.png');
+}
 
 class Text {
   constructor(text, x, y, width) {
@@ -22,23 +27,23 @@ class Text {
 //----------------------------------------------------------------------------
 class Ball {
   constructor(img, x, y, s, ss) {
-    this.img;
-    this.x = 200;
+    this.img = img;
+    this.x = x;
     this.vx = 2.4;
-    this.y = 200;
+    this.y = y;
     this.vy = 1;
-    this.s = 40;
-    this.ss = 40;
+    this.s = s;
+    this.ss = ss;
     this.sc = 0.75;
     this.s2;
-  }
+}
 
   //----------------------------------------------------------------------------
   drawBall() {
     image(this.img, this.x, this.s, this.ss)
 
     //----------------------------------------------------------------------------
-    distance = dist(mouseX, mouseY, this.x, this.y)
+    var distance = dist(mouseX, mouseY, this.x, this.y)
     if (distance < this.s2) {
       dot1 = 0
       score = 1
@@ -82,12 +87,6 @@ class Ball {
 }
 
 //----------------------------------------------------------------------------
-function preload() {
-  bg = loadImage('images/GameBackgroundPong.png');
-  batje = loadImage('images/PingPongBatje.png');
-  balletje = loadImage('images/PingPongBall.png');
-}
-
 
 //----------------------------------------------------------------------------
 function setup() {
@@ -102,7 +101,7 @@ function setup() {
   hALLO = new Text('HALLO', 0, 100, width);
   start = new Text('Press shift to start', 0, 275, width);
   playagain = new Text('Press shift to play again', 0, 300, width);
-  ball1 = new Ball(balletje, this.x - this.s, this.y - this.s, this.s * 2, this.ss * 2)
+  ball1 = new Ball(balletje, 200 - 40, 200 - 40, 40 * 2, 40 * 2)
 }
 
 
@@ -143,7 +142,7 @@ function draw() {
 function game() {
   background(bg)
   noCursor();
-  ball1.drawBall
+  ball1.drawBall();
   textSize(30);
   fill(255);
   text(newscore, 240, 30)
@@ -151,50 +150,50 @@ function game() {
 
 
   //----------------------------------------------------------------------------  
-  distance = dist(mouseX, mouseY, x, y)
-  if (distance < s2) {
-    dot1 = 0
-    score = 1
-  }
-  else {
-    dot1 = 255
-    score = 0
-  }
+  // distance = dist(mouseX, mouseY, x, y)
+  // if (distance < s2) {
+  //   dot1 = 0
+  //   score = 1
+  // }
+  // else {
+  //   dot1 = 255
+  //   score = 0
+  // }
   //Zorgt dat het midden van kleur kan veranderen als je er over hovert
 
+//   image(balletje, x - s, y - s, s * 2, s * 2)
+//   //Grote stip
 
-  image(balletje, x - s, y - s, s * 2, s * 2)
-  //Grote stip
+//   fill(dot1)
+//   circle(x, y, s2);
+//   //Kleine stip
 
-  fill(dot1)
-  circle(x, y, s2);
-  //Kleine stip
+//   x = x + vx;
+//   y = y + vy
+//   s = s + sc
+//   s2 = s * 0.4
 
-  x = x + vx;
-  y = y + vy
-  s = s + sc
-  s2 = s * 0.4
+//   if (x < 100 || x > 400) {
+//     vx = vx * -1;
+//   } //x border bounce
 
-  if (x < 100 || x > 400) {
-    vx = vx * -1;
-  } //x border bounce
+//   if (y < 100 || y > 400) {
+//     vy = vy * -1;
+//   } //y border bounce
 
-  if (y < 100 || y > 400) {
-    vy = vy * -1;
-  } //y border bounce
+//   if (s < 20 || s > 80) {
+//     sc = sc * -1;
+//   } //scale bounce
 
-  if (s < 20 || s > 80) {
-    sc = sc * -1;
-  } //scale bounce
+//   if (s >= 80) {
+//     newscore = newscore + 1
+//   } //score
 
-  if (s >= 80) {
-    newscore = newscore + 1
-  } //score
-
-  if (s >= 79 && score == 0) {
-    gameState = 2;
-    s = 25
-  } //reset scale value
+//   if (s >= 79 && score == 0) {
+//     gameState = 2;
+//     s = 25
+//   }
+  //reset scale value
 
   //----------------------------------------------------------------------------
   if (newscore >= highscore) {
